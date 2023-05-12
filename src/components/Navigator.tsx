@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Settings from './Settings';
+import Basics from './Basics';
 
 
 const Drawer = createDrawerNavigator();
@@ -14,7 +14,7 @@ const Navigator = () => {
 		return (
 				<NavigationContainer>
 						<Drawer.Navigator>
-								<Drawer.Screen name={'Settings'} component={Settings} />
+								<Drawer.Screen name={'Basics'} component={Basics} />
 						</Drawer.Navigator>
 
 				</NavigationContainer>
