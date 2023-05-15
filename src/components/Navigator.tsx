@@ -9,6 +9,7 @@ import Foo from './Foo';
 import Pinch from './Pinch';
 import Instagram from './Instagram';
 import Scroller2 from './Scroller2';
+import ColorPicker from './ColorPicker';
 
 
 const Drawer = createDrawerNavigator();
@@ -26,6 +27,7 @@ const Navigator = () => {
 				<Drawer.Screen name='Pinch'					component={ Pinch } options={{ headerShown: false }} />
 				<Drawer.Screen name='Instagram'				component={ Instagram } options={{ headerShown: false }}/>
 				<Drawer.Screen name='Scroller2'				component={ Scroller2 } />
+				<Drawer.Screen name='Color Picker'			component={ ColorPicker } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);
