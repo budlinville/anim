@@ -7,6 +7,7 @@ import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, 
 
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 
+// Note dimenstions are probably slightly thrown off because of the header
 const { width, height } = Dimensions.get('window');
 
 
