@@ -6,6 +6,8 @@ import Basics from './Basics';
 import PanGesture from './PanGesture';
 import Scroller from './Scroller';
 import Themes from './Themes';
+import Foo from './Foo';
+import Pinch from './Pinch';
 
 
 const Drawer = createDrawerNavigator();
@@ -18,7 +20,9 @@ const Navigator = () => {
 				<Drawer.Screen name='Basics'				component={ Basics } />
 				<Drawer.Screen name='Pan Gesture'			component={ PanGesture } />
 				<Drawer.Screen name='Scroller'				component={ Scroller } />
-				<Drawer.Screen name='Themes'	component={ Themes } />
+				<Drawer.Screen name='Themes'				component={ Themes } />
+				<Drawer.Screen name='Pinch'					component={ Pinch } />
+				<Drawer.Screen name='Foo'					component={ Foo } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);
