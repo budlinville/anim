@@ -10,9 +10,6 @@ interface Item {
     id: number,
 }
 
-const items: Item[] = new Array(5).fill(0).map((_, i) => ({ id: i }));
-
-
 interface ListProps {}
 
 const ListAnimations = (props: ListProps) => {
