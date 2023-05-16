@@ -2,8 +2,8 @@ import { Text, View, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 
 
-const HEIGHT = 70;
-const WIDTH = 50;
+const HEIGHT = 210;
+const WIDTH = 150;
 
 
 interface CardProps {
@@ -12,18 +12,22 @@ interface CardProps {
     translateX: Animated.SharedValue<number>,
 }
 
-const Card = (props: CardProps) => {
+const Card = ({ index }: CardProps) => {
     return (
-        <View style={styles.container}>
-            <Text>Card</Text>
-        </View>
-  );
+        <Animated.View key={index}
+            style       ={ styles.card }
+        >
+            <Text>{ index }</Text>
+        </Animated.View>
+    );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    card: {
         height: HEIGHT,
         width: WIDTH,
+        backgroundColor: 'red',
+        marginHorizontal: 10,
     }
 });
 

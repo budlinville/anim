@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet,ScrollView } from 'react-native';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import Card from './Card';
 
@@ -14,6 +14,7 @@ const Cards = (props: CardsProps) => {
 
     const scrollHandler = useAnimatedScrollHandler((event) => {
         translateX.value = event.contentOffset.x;
+        console.log(translateX.value)
     });
     
     return (
@@ -35,8 +36,9 @@ const Cards = (props: CardsProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        position: 'absolute',
+        backgroundColor: 'green',
+        bottom: '5%',
     }
 });
 

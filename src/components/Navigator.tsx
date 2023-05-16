@@ -13,6 +13,7 @@ import ColorPicker from './ColorPicker';
 import CircularProgress from './CircularProgress';
 import List from './List';
 import PrettyList from './PrettyList';
+import Cards from './Cards';
 
 
 const Drawer = createDrawerNavigator();
@@ -34,6 +35,7 @@ const Navigator = () => {
 				<Drawer.Screen name='Circular Progress'		component={ CircularProgress } options={{ headerShown: false }} />
 				<Drawer.Screen name='List'					component={ List } />
 				<Drawer.Screen name='Pretty List'			component={ PrettyList } />
+				<Drawer.Screen name='Cards'					component={ Cards } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);
