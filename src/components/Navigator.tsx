@@ -12,6 +12,7 @@ import Scroller2 from './Scroller2';
 import ColorPicker from './ColorPicker';
 import CircularProgress from './CircularProgress';
 import List from './List';
+import PrettyList from './PrettyList';
 
 
 const Drawer = createDrawerNavigator();
@@ -31,7 +32,8 @@ const Navigator = () => {
 				<Drawer.Screen name='Scroller2'				component={ Scroller2 } />
 				<Drawer.Screen name='Color Picker'			component={ ColorPicker } />
 				<Drawer.Screen name='Circular Progress'		component={ CircularProgress } options={{ headerShown: false }} />
-				<Drawer.Screen name='List'					component={ List } options={{ headerShown: false }} />
+				<Drawer.Screen name='List'					component={ List } />
+				<Drawer.Screen name='Pretty List'			component={ PrettyList } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);

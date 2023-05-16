@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native';
+import Animated from 'react-native-reanimated';
 
 
 const HEIGHT = 70;
@@ -20,7 +21,10 @@ const Card = (props: CardProps) => {
 };
 
 const styles = StyleSheet.create({
-    container: {}
+    container: {
+        height: HEIGHT,
+        width: WIDTH,
+    }
 });
 
 export default Card;

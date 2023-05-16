@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import Card from './Card';
 
 interface CardsProps {}
 
@@ -21,9 +22,9 @@ const Cards = (props: CardsProps) => {
             style               ={ styles.container }
             onScroll            ={ scrollHandler }
         >
-            { WORDS.map((word, index) => (
-                <Page key={index.toString()}
-                    title       ={ word }
+            { CARDS.map((color, index) => (
+                <Card key={index.toString()}
+                    color       ={ color }
                     index       ={ index }
                     translateX  ={ translateX }
                 />
