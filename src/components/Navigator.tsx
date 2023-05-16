@@ -11,6 +11,7 @@ import Instagram from './Instagram';
 import Scroller2 from './Scroller2';
 import ColorPicker from './ColorPicker';
 import CircularProgress from './CircularProgress';
+import List from './List';
 
 
 const Drawer = createDrawerNavigator();
@@ -30,6 +31,7 @@ const Navigator = () => {
 				<Drawer.Screen name='Scroller2'				component={ Scroller2 } />
 				<Drawer.Screen name='Color Picker'			component={ ColorPicker } />
 				<Drawer.Screen name='Circular Progress'		component={ CircularProgress } options={{ headerShown: false }} />
+				<Drawer.Screen name='List'					component={ List } options={{ headerShown: false }} />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);
