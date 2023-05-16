@@ -14,6 +14,7 @@ import CircularProgress from './CircularProgress';
 import List from './List';
 import PrettyList from './PrettyList';
 import Cards from './Cards';
+import ProPoke from './ProPoke';
 
 
 const Drawer = createDrawerNavigator();
@@ -36,6 +37,7 @@ const Navigator = () => {
 				<Drawer.Screen name='List'					component={ List } />
 				<Drawer.Screen name='Pretty List'			component={ PrettyList } />
 				<Drawer.Screen name='Cards'					component={ Cards } />
+				<Drawer.Screen name='ProPoke'				component={ ProPoke } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);

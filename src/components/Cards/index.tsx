@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { Text, View, StyleSheet,ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
-import Card from './Card';
 
-interface CardsProps {}
-
-
-const CARDS = ['red', 'green', 'blue', 'yellow', 'orange'];
+import Card, { CARD_CONTAINER_PADDING } from './Card';
 
 
-const Cards = (props: CardsProps) => {
+const CARDS = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'brown'];
+
+
+const Cards = () => {
     const translateX = useSharedValue(0);
 
     const scrollHandler = useAnimatedScrollHandler((event) => {
         translateX.value = event.contentOffset.x;
-        console.log(translateX.value)
     });
+
+    const cards = ['transparent', ...CARDS, 'transparent'];
     
     return (
         <Animated.ScrollView horizontal
             scrollEventThrottle ={ 16 /* 60 FPS (1/60 ~= 16 ms)*/ }
             style               ={ styles.container }
             onScroll            ={ scrollHandler }
+            contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}
         >
-            { CARDS.map((color, index) => (
+            { cards.map((color, index) => (
                 <Card key={index.toString()}
                     color       ={ color }
                     index       ={ index }
@@ -37,8 +37,9 @@ const Cards = (props: CardsProps) => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        backgroundColor: 'green',
         bottom: '5%',
+        height: 300,
+        paddingHorizontal: CARD_CONTAINER_PADDING,
     }
 });
 
