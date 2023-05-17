@@ -1,5 +1,5 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { StyleSheet, Dimensions, Pressable } from 'react-native';
+import Animated, { Extrapolate, interpolate, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 import { onMobile } from 'src/utils';
 
@@ -7,6 +7,8 @@ import { onMobile } from 'src/utils';
 const CARD_HEIGHT           = 210;
 export const CARD_WIDTH     = 150;
 export const CARD_MARGIN    = 10;
+const WEB_SCALE             = 1.15;
+const MOBILE_SCALE          = 1.2;
 
 
 interface CardProps {
@@ -18,6 +20,8 @@ interface CardProps {
 const { width: screenWidth } = Dimensions.get('window');
 
 const Card = ({ index, translateX, color }: CardProps) => {
+    const webScale = useSharedValue(1);
+
     const marginOffset = 2 * index * CARD_MARGIN + CARD_MARGIN;
 
     // Dividing screenWidth by 3 makes more logical sense to me,
@@ -28,30 +32,42 @@ const Card = ({ index, translateX, color }: CardProps) => {
         (index + 1) * CARD_WIDTH + 20 + marginOffset - screenWidth / 2.8,
     ];
 
-    const rStyle = onMobile()
+    const rMobileStyle = onMobile()
         ? useAnimatedStyle(() => {
-            const scale = interpolate(
+            const mobileScale = interpolate(
                 translateX.value,
                 inputRange,
-                [1, 1.2, 1],
+                [1, MOBILE_SCALE, 1],
                 Extrapolate.CLAMP,
             );
 
             return {
-                transform: [{ scale }],
+                transform: [{ scale: mobileScale }],
             }
         })
         : {};
 
+    const rWebStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{ scale: webScale.value }]
+        }
+    });
+
 
     return (
-        <Animated.View key={index}
-            style={[
-                styles.card,
-                rStyle,
-                { backgroundColor: color}
-            ]}
-        />
+        <Pressable
+            onHoverIn   ={ () => webScale.value = withSpring(WEB_SCALE) }
+            onHoverOut  ={ () => webScale.value = withSpring(1) }
+        >
+            <Animated.View key={index}
+                style={[
+                    styles.card,
+                    rMobileStyle,
+                    rWebStyle,
+                    { backgroundColor: color}
+                ]}
+            />
+        </Pressable>
     );
 };
 
