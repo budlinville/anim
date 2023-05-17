@@ -1,11 +1,12 @@
-import { Text, View, StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 
+import { onMobile } from 'src/utils';
 
-const HEIGHT = 210;
-const WIDTH = 150;
-const CARD_MARGIN = 10;
-export const CARD_CONTAINER_PADDING = 20;
+
+const CARD_HEIGHT           = 210;
+export const CARD_WIDTH     = 150;
+export const CARD_MARGIN    = 10;
 
 
 interface CardProps {
@@ -17,26 +18,30 @@ interface CardProps {
 const { width: screenWidth } = Dimensions.get('window');
 
 const Card = ({ index, translateX, color }: CardProps) => {
-    const offset = 2 * index * CARD_MARGIN + CARD_MARGIN + CARD_CONTAINER_PADDING;
+    const marginOffset = 2 * index * CARD_MARGIN + CARD_MARGIN;
 
+    // Dividing screenWidth by 3 makes more logical sense to me,
+    // but trial and error proved 2.8 to yield better results
     const inputRange = [
-        (index - 1) * WIDTH + 20 + offset - screenWidth / 3,
-        index       * WIDTH + 20 + offset - screenWidth / 3,
-        (index + 1) * WIDTH + 20 + offset - screenWidth / 3,
+        (index - 1) * CARD_WIDTH + 20 + marginOffset - screenWidth / 2.8,
+        index       * CARD_WIDTH + 20 + marginOffset - screenWidth / 2.8,
+        (index + 1) * CARD_WIDTH + 20 + marginOffset - screenWidth / 2.8,
     ];
 
-    const rStyle = useAnimatedStyle(() => {
-        const scale = interpolate(
-            translateX.value,
-            inputRange,
-            [1, 1.2, 1],
-            Extrapolate.CLAMP,
-        );
+    const rStyle = onMobile()
+        ? useAnimatedStyle(() => {
+            const scale = interpolate(
+                translateX.value,
+                inputRange,
+                [1, 1.2, 1],
+                Extrapolate.CLAMP,
+            );
 
-        return {
-            transform: [{ scale }],
-        }
-    });
+            return {
+                transform: [{ scale }],
+            }
+        })
+        : {};
 
 
     return (
@@ -52,8 +57,8 @@ const Card = ({ index, translateX, color }: CardProps) => {
 
 const styles = StyleSheet.create({
     card: {
-        height: HEIGHT,
-        width: WIDTH,
+        height: CARD_HEIGHT,
+        width: CARD_WIDTH,
         marginHorizontal: CARD_MARGIN,
         borderRadius: 15,
     }

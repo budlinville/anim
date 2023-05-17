@@ -24,6 +24,7 @@ const Navigator = () => {
 	return (
 		<NavigationContainer>
 			<Drawer.Navigator>
+				<Drawer.Screen name='ProPoke'				component={ ProPoke } />
 				<Drawer.Screen name='Foo'					component={ Foo } />
 				<Drawer.Screen name='Basics'				component={ Basics } />
 				<Drawer.Screen name='Pan Gesture'			component={ PanGesture } />
@@ -37,7 +38,6 @@ const Navigator = () => {
 				<Drawer.Screen name='List'					component={ List } />
 				<Drawer.Screen name='Pretty List'			component={ PrettyList } />
 				<Drawer.Screen name='Cards'					component={ Cards } />
-				<Drawer.Screen name='ProPoke'				component={ ProPoke } />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);
