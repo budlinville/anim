@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 const { width: screenWidth } = Dimensions.get('window');
 
 // Short list (odd)
-const CARDS = ['red', 'green', 'blue', 'purple', 'orange'];
+const CARDS = ['red', 'orange', 'blue', 'purple', 'yellow'];
 // Long list (even)
 // const CARDS = ['gold', 'hotpink', 'grey', 'black','red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'brown'];
 
