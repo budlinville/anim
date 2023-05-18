@@ -4,11 +4,11 @@ import Animated, { Extrapolate, interpolate, useAnimatedStyle, useSharedValue, w
 import { onMobile } from 'src/utils';
 
 
-const CARD_HEIGHT           = 210;
-export const CARD_WIDTH     = 150;
-export const CARD_MARGIN    = 10;
-const WEB_SCALE             = 1.15;
-const MOBILE_SCALE          = 1.2;
+const CARD_HEIGHT           = 140;
+export const CARD_WIDTH     = 100;
+export const CARD_MARGIN    = 15;
+const WEB_SCALE             = 1.3;
+const MOBILE_SCALE          = 1.4;
 
 
 interface CardProps {
@@ -48,7 +48,9 @@ const Card = ({ index, translateX, color }: CardProps) => {
             );
 
             return {
-                transform: [{ scale: mobileScale }],
+                transform: [
+                    { scale: mobileScale }
+                ],
             }
         });
 
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     cardBacktext: {
-        fontSize: 30,
+        fontSize: 20,
         color: '#f1f1f1',
         textTransform: 'uppercase',
         fontWeight: '700',

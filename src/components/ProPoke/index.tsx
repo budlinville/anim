@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import image from './assets/casino-felt.jpg';
-import Cards from '../Cards';
+import Cards from './Cards';
+import Table from './Table';
 
 
 // FIXME need reanimated update, see https://github.com/software-mansion/react-native-reanimated/issues/3355
@@ -17,9 +17,8 @@ interface ProPokeProps {}
 const ProPoke = (props: ProPokeProps) => {
     return (
         <View style={styles.container}>
-            <ImageBackground source={image} style={styles.image}>
-                <Cards />
-            </ImageBackground>
+            <Table />
+            <Cards />
         </View>
     );
 };

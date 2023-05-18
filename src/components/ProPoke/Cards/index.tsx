@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     container: {
         position: 'absolute',
         bottom: 0,
-        height: 300,
+        height: 200,
         width: '100%',
     },
 });
