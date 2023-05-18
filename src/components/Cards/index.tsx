@@ -5,7 +5,10 @@ import Card, { CARD_MARGIN, CARD_WIDTH } from './Card';
 import { useEffect, useRef } from 'react';
 
 const { width: screenWidth } = Dimensions.get('window');
-const CARDS = ['red', 'green', 'blue', 'yellow', 'orange'];
+
+// Short list (odd)
+const CARDS = ['red', 'green', 'blue', 'purple', 'orange'];
+// Long list (even)
 // const CARDS = ['gold', 'hotpink', 'grey', 'black','red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'brown'];
 
 
