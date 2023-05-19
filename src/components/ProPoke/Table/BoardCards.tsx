@@ -1,5 +1,30 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
+
+
+const { width: screenWidth } = Dimensions.get('window');
+
+const CONTAINER_WIDTH   = Math.min(screenWidth * 0.9, 500)
+const CONTAINER_HEIGHT  = CONTAINER_WIDTH * 0.6;
+const MARGIN_TOP        = 50;
+const MARGIN_BOTTOM     = 175;
+
+
+interface CardProps {
+    color: string,
+}
+
+const Card = ({ color }: CardProps) => {
+    return (
+            <Animated.View
+                style={[
+                    styles.boardCard,
+                    { backgroundColor: color },
+                ]}
+            />
+    )
+};
+
 
 interface BoardCardsProps {
     cards: string[],
@@ -8,24 +33,12 @@ interface BoardCardsProps {
 const BoardCards = ({ cards }: BoardCardsProps) => {
     return (
         <Animated.View style={ styles.container }>
-            { cards.map((color) => (
-                <View style={[
-                    styles.boardCard,
-                    { backgroundColor: color },
-                ]}>
-
-                </View>
+            { cards.map( (color) => (
+                <Card key={ color } color={ color } />
             )) }
         </Animated.View>
     );
 };
-
-const { width: screenWidth } = Dimensions.get('window');
-const CONTAINER_WIDTH = Math.min(screenWidth * 0.9, 500)
-const CONTAINER_HEIGHT = CONTAINER_WIDTH * 0.6;
-
-const MARGIN_TOP = 50;
-const MARGIN_BOTTOM = 175;
 
 const styles = StyleSheet.create({
     container: {
