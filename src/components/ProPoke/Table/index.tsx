@@ -7,9 +7,10 @@ import ActiveGames from './ActiveGames';
 import TableTop from './TableTop';
 
 
-const TABLE_SIZE = 1500;
+const TABLE_SIZE = 1750;
 const PERSPECTIVE = 1500;
 const ROTATE_X = '40deg';
+const DESKTOP_WIDTH_RATIO = 1.05;
 
 
 interface TableProps {}
@@ -17,7 +18,10 @@ interface TableProps {}
 const Table = ({}: TableProps) => {
     return (
         <View style={styles.container}>
-            <TableTop style={styles.tableTop}>
+            <TableTop borderColor='#321010'
+                outerStyle={styles.tableTopOuter}
+                innerStyle={styles.tableTopInner} 
+            >
                 <View style={styles.tableTopSide}>
                     <Leaderboard />
                 </View>
@@ -46,19 +50,21 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         backgroundColor: '#a51b1b',
     },
-    tableTop: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        width: TABLE_SIZE * (onMobile() ? 1 : 1.3),
+    tableTopOuter: {
+        width: TABLE_SIZE * (onMobile() ? 1 : DESKTOP_WIDTH_RATIO),
         height: TABLE_SIZE,
         borderRadius: TABLE_SIZE / 2,
         bottom: -TABLE_SIZE / 20,
         transform: [
             { perspective: PERSPECTIVE },
-            { rotateX: ROTATE_X }
+            { rotateX: ROTATE_X },
         ],
+    },
+    tableTopInner: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: TABLE_SIZE / 2,
     },
     tableTopSide: {
         height: '30%',
