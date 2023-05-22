@@ -4,10 +4,10 @@ import { onMobile } from 'src/utils';
 import React from 'react';
 import Leaderboard from './Leaderboard';
 import ActiveGames from './ActiveGames';
+import TableTop from './TableTop';
 
 
 const TABLE_SIZE = 1500;
-const BORDER_WIDTH = 50;
 const PERSPECTIVE = 1500;
 const ROTATE_X = '40deg';
 
@@ -15,25 +15,25 @@ const ROTATE_X = '40deg';
 interface TableProps {}
 
 const Table = ({}: TableProps) => {
-  return (
-    <View style={styles.container}>
-        <View style={styles.tableTop}>
-            <View style={styles.tableTopSide}>
-                <Leaderboard />
-            </View>
+    return (
+        <View style={styles.container}>
+            <TableTop style={styles.tableTop}>
+                <View style={styles.tableTopSide}>
+                    <Leaderboard />
+                </View>
 
-            <View style={styles.tableTopCenter}>
-                <Text style={styles.title}>ProPoke</Text>
-                <Text style={styles.subtext}>A game by Fandex</Text>
-                <BoardCards cards={['red', 'orange', 'blue', 'purple', 'yellow']} />
-            </View>
+                <View style={styles.tableTopCenter}>
+                    <Text style={styles.title}>ProPoke</Text>
+                    <Text style={styles.subtext}>A game by Fandex</Text>
+                    <BoardCards cards={['red', 'orange', 'blue', 'purple', 'yellow']} />
+                </View>
 
-            <View style={styles.tableTopSide}>
-                <ActiveGames />
-            </View>
+                <View style={styles.tableTopSide}>
+                    <ActiveGames />
+                </View>
+            </TableTop>
         </View>
-    </View>
-  );
+    );
 };
 
 export default Table;
@@ -53,15 +53,7 @@ const styles = StyleSheet.create({
 
         width: TABLE_SIZE * (onMobile() ? 1 : 1.3),
         height: TABLE_SIZE,
-
         borderRadius: TABLE_SIZE / 2,
-        borderWidth: BORDER_WIDTH,
-        borderColor: '#401515',
-
-        // TODO: Does not work on mobile
-        boxShadow: 'inset 0 0 25px black',
-        backgroundColor: 'darkgreen',
-
         bottom: -TABLE_SIZE / 20,
         transform: [
             { perspective: PERSPECTIVE },
