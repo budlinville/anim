@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import Cards from './Cards';
 import Table from './Table';
+import { useState } from 'react';
 
 
 // FIXME need reanimated update, see https://github.com/software-mansion/react-native-reanimated/issues/3355
@@ -14,7 +15,10 @@ if (typeof window !== 'undefined') {
 
 interface ProPokeProps {}
 
-const ProPoke = (props: ProPokeProps) => {
+const ProPoke = ({}: ProPokeProps) => {
+    const [cardsInHand, setCardsInHand] = useState<string[]>([]);
+    const [cardsOnBoard, setCardsOnBoard] = useState<string[]>([]);
+
     return (
         <View style={styles.container}>
             <Table />

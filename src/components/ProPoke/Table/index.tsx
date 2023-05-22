@@ -6,9 +6,9 @@ import Leaderboard from './Leaderboard';
 import ActiveGames from './ActiveGames';
 
 
-const TABLE_SIZE = 1400;
+const TABLE_SIZE = 1500;
 const BORDER_WIDTH = 50;
-const PERSPECTIVE = 800;
+const PERSPECTIVE = 1500;
 const ROTATE_X = '40deg';
 
 
