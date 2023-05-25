@@ -14,9 +14,9 @@ interface TableTopProps {
 const TableTop = ({ innerStyle, outerStyle, children, borderColor }: TableTopProps) => {
 
     const colorList = [
-        { offset:   '0%',   color: '#005600',   opacity: '1' },
+        { offset:   '0%',   color: '#007c00',   opacity: '1' },
         { offset:   '70%',  color: '#015A01',   opacity: '1' },
-        { offset:   '99%', color: '#014F01',   opacity: '1' },
+        { offset:   '99%',  color: '#014F01',   opacity: '1' },
         { offset:   '100%', color: '#003E00',   opacity: '1' }
     ];
 

@@ -4,6 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import Cards from './Cards';
 import Table from './Table';
 import { useState } from 'react';
+import Background from './Background';
 
 
 // FIXME need reanimated update, see https://github.com/software-mansion/react-native-reanimated/issues/3355
@@ -21,6 +22,7 @@ const ProPoke = ({}: ProPokeProps) => {
 
     return (
         <View style={styles.container}>
+            <Background />
             <Table />
             <Cards />
         </View>

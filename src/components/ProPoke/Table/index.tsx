@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         overflow: 'hidden',
-        backgroundColor: '#a51b1b',
     },
     tableTopOuter: {
         width: TABLE_SIZE * (onMobile() ? 1 : DESKTOP_WIDTH_RATIO),
